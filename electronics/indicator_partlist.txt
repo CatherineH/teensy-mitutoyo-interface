@@ -1,0 +1,14 @@
+Partlist
+
+Exported from mitsuyo_interface.sch at 8/31/16 2:12 PM
+
+EAGLE Version 7.5.0 Copyright (c) 1988-2015 CadSoft
+
+Assembly variant: 
+
+Part      Value           Device          Package        Library                            Sheet
+
+INDICATOR 302-S101        302-S101        302-S101       connectors                         1
+R1        10k             R-US_R0805      R0805          resistor                           1
+T1        2N2222          2N2222          TO92-EBC-OVAL  adafruit                           1
+TEENSY    TEENSY_LC_MOTOR TEENSY_LC_MOTOR TEENSYLC-MOTOR Teensy_3_and_LC_Series_Boards_v1.1 1

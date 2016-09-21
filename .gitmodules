@@ -1,0 +1,3 @@
+[submodule "electronics/catherineh-eagle-libraries"]
+	path = electronics/catherineh-eagle-libraries
+	url = https://github.com/CatherineH/catherineh-eagle-libraries.git
