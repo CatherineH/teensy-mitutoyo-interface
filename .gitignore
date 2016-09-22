@@ -1,4 +1,5 @@
 .idea
 src/__pycache__
 src/dist
+src/build
 src/mitutuyo_interface.egg-info/

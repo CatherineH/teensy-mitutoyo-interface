@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from setuptools import setup, find_packages
+from setuptools import setup
 
 
 setup(name='mitutuyo_interface',
@@ -11,5 +11,5 @@ setup(name='mitutuyo_interface',
       url='https://gitlab.com/milankie/teensy-mitutoyo-interface',
       zip_safe=False,
       install_requirements=['instruments'],
-      packages=['mitutoyo_interface']
+      py_modules=['mitutoyo_interface']
       )
