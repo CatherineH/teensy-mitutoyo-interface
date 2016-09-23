@@ -49,7 +49,7 @@ def compile_upload(project_name="mitutoyo_interface"):
     curr_dir = dirname(__file__)
 
     check_boards()
-    command = ['"'+join(arduino_builder_folder, 'arduino-builder')+'"',
+    command = [join(arduino_builder_folder, 'arduino-builder'),
                '-fqbn', 'teensy:avr:teensyLC',
                '-hardware', format_arduino_folder('hardware'),
                '-tools', format_arduino_folder('hardware/tools'),

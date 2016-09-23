@@ -36,6 +36,23 @@ class MitutoyoInterface(Instrument):
         return self.query("DECI?")
 
     @property
+    def good_reading(self):
+        """
+        Get the current reading state.
+        :rtype: int
+        """
+        return int(self.query("GOOD?"))
+
+    @property
+    def raw(self):
+        """
+        Get the raw value from the dial indicator
+        :rtype: str
+        """
+        query = self.query("RAWD?")
+        return query
+
+    @property
     def reading(self):
         """
         Get the current reading off of the indicator.
@@ -44,7 +61,6 @@ class MitutoyoInterface(Instrument):
         :units: millimeters or mils
         """
         query = self.query("READ?").split(" ")
-
         response = pq.Quantity(float(query[0]), query[1])
         return response
 
@@ -70,6 +86,6 @@ class MitutoyoInterface(Instrument):
 
 
 if __name__ == "__main__":
-    mi = MitutoyoInterface.open_serial(vid=5824, pid=1155, baud=9600)
+    mi = MitutoyoInterface.open_serial(vid=5824, pid=1155, serial_number='1743330', baud=9600)
     while True:
-        print(mi.reading)
+       print(mi.reading, mi.raw, mi.good_reading)

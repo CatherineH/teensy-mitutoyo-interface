@@ -39,6 +39,21 @@ void comm_protocol(byte incomingByte, mitutoyo_interface *interface){
             sprintf(output_str, "%d%c", interface->decimal, terminationByte);
             Serial.write(output_str);
         }
+        else if(strncmp(line, "GOOD", 4)==0 && strpbrk(line, "?") != 0){
+            sprintf(output_str, "%d%c", interface->good_reading, terminationByte);
+            Serial.write(output_str);
+        }
+        else if(strncmp(line, "RAWD", 4)==0 && strpbrk(line, "?") != 0){
+            //String raw_data_str = String((char*)interface->raw_data);
+            //Serial.print(raw_data_str);
+            for(int i=0;i<13;i++)
+            {
+                sprintf(output_str, "%d,", interface->raw_data[i]);
+                Serial.write(output_str);
+            }
+            sprintf(output_str, "%c", terminationByte);
+            Serial.write(output_str);
+        }
         else if(strncmp(line, "READ", 4)==0 && strpbrk(line, "?") != 0){
             float reading = interface->number/1000.0;
             if(interface->sign == 8)
@@ -53,7 +68,7 @@ void comm_protocol(byte incomingByte, mitutoyo_interface *interface){
                 reading = reading/10.0;
                 sprintf(output_str, " thou%c", terminationByte);
             }
-            Serial.print(reading);
+            Serial.print(reading, 4);
             Serial.write(output_str);
         }
         else if(strncmp(line, "SIGN", 4)==0 && strpbrk(line, "?") != 0){
